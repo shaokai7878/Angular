@@ -1,128 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-first [title]="'hhhhhh'"></app-first>
+<div>
+  <!-- <input type="text" [(ngModel)]="one">
+  <button (click)="add(one)">添加数据</button>
+  <h3>正在进行</h3>
+  <ul>
+    <li *ngFor="let item of arrData;let idx = index;">
+      <input type="checkbox" (change)="bian(idx)">{{item}} ------ <button (click)="del(idx)">删除</button>
+    </li>
+  </ul> 
+  <h3>已经完成</h3>
+  <ul>
+    <li *ngFor="let item of arrData1;let idx = index;">
+      <input type="checkbox" checked (change)="bian1(idx)">{{item}} ------ <button (click)="del1(idx)">删除</button>
+    </li>
+  </ul> -->
 
-<div style="text-align:center">
-  <!--  插值表达式  -->
-  <!-- <h1>
-    {{title}}
-  </h1>
-  <img src="{{imgUrl}}" alt=""> -->
-  <!-- 属性绑定 -->
-  <!-- <p [id]='id' [innerHTML]="title"></p> -->
-
-<!-- 循环 -->
-<!-- <ul>
-  <li *ngFor="let item of arr;let i=index">
-    {{item}}的索引是{{i}}
-  </li>
-</ul> -->
-
-<!-- 条件判断 事件绑定 -->
-<!-- <ul *ngIf="true">
-  <li *ngFor="let item of arr;let i=index" (click)="fn()">
-    {{item}}的索引是{{i}}
-  </li>
-</ul> -->
-
-<!-- ngSwitch指令 -->
-
-
-<input type="radio" (change)="changeFruit('苹果')"value="苹果"name="fruit">苹果
-<input type="radio" (change)="changeFruit('香蕉')"value="香蕉"name="fruit">香蕉
-<input type="radio" (change)="changeFruit('橙子')"value="橙子"name="fruit">橙子
-<div [ngSwitch]="fruit">
-  <div *ngSwitchCase="'苹果'">
-    这是一个苹果
-  </div>
-  <div *ngSwitchCase="'香蕉'">
-    这是一个香蕉
-  </div>
-  <div *ngSwitchCase="'橙子'">
-    这是一个橙子
-  </div>
+  
+  <a routerLink="/a">a</a>
+  <a routerLink="/b">b</a>
+  <a [routerLink]="['/home/',100]">home</a>
+  <a routerLink="/goodslist" [queryParams]="{aa:100}">goodslist</a>
+  <router-outlet></router-outlet>
 </div>
-
-
-
-
-
-<!-- <input type="radio" (change)="changeFruit('苹果')" value="苹果" name="fruit">苹果
-<input type="radio" (change)="changeFruit('香蕉')" value="香蕉" name="fruit">香蕉
-<input type="radio" (change)="changeFruit('橙子')" value="橙子" name="fruit">橙子
-<div [ngSwitch]="fruit" >
-  <div *ngSwitchCase="'苹果'">
-    这是一个苹果
-  </div>
-  <div *ngSwitchCase="'香蕉'">
-    这是一个香蕉
-  </div>
-  <div *ngSwitchCase="'橙子'">
-    这是一个橙子
-  </div>
-</div> -->
-
-<!-- 双向数据绑定  -->
-<!-- <input type="text" [(ngModel)]="txt">
-{{txt}}
-<input type="text"[value]='txt'(input)="txt=$event.target.value"> -->
-<!-- 实现todolist功能 -->
-
-
-
-<br>
-<input type="text" [(ngModel)]="data">
-
-<button (click)="add()">添加数据</button>
-<h3>正在进行{{dataArr.length}}</h3>
-<ul>
-  <li *ngFor = 'let item of dataArr;let i = index'>
-    <input  type="checkbox" (change)="changeData1(i)">{{item}}
-    <button  (click)="deData1(i)">删除</button>
-  </li>
-</ul>
-<h3>已经完成{{dataA.length}}</h3>
-<ul>
-  <li *ngFor = 'let item of dataA;let i = index'>
-    <input  type="checkbox" checked (change)="changeData2(i)">{{item}}
-    <button (click)="deData2(i)">删除</button>
-  </li>
-</ul>
-
-
-
-
-
-<!-- <br>
-<input type="text" [(ngModel)]="content" (keyup)="keyData($event)">
-<button (click)="addData()">添加数据</button>
-<h3>正在进行</h3>
-<ul>
-	<li *ngFor="let item of tolist;let idx = index;">
-		<input type="checkbox" (change)="change(idx)">{{item}} ------ <button (click)="delData(idx)">删除</button>
-	</li>
-</ul> 
-<h3>已经完成</h3>
-<ul>
-	<li *ngFor="let item of comlist;let idx = index;">
-		<input type="checkbox" checked (change)="change2(idx)">{{item}} ------ <button (click)="delData2(idx)">删除</button>
-	</li>
-</ul> -->
-</div> 
-<!-- 组件
-<app-todolist></app-todolist>
-
-组件交互
-父组件到子组件
-<app-goodslist [list]="arr1"></app-goodslist>
-<app-goodslist [list]="goodslist"></app-goodslist>
-父组件到子组件
-<div class="box">
-  <h2>你同意五一放七天假吗</h2>
-  <h3>Agree: {{agreed}}, Disagree: {{disagreed}}</h3>
-  <app-voter *ngFor="let voter of voters" [name]="voter" (onVoted)="onVoted($event)">
-  </app-voter>
-</div>
-   -->
-   <app-goodslist></app-goodslist>
-<h2>{{index}}</h2>
 

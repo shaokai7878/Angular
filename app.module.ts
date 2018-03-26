@@ -1,28 +1,50 @@
-import { BrowserModule } from '@angular/platform-browser';//数据绑定
-import { NgModule } from '@angular/core';//实现双向数据绑定引入的模块
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpModule, JsonpModule } from '@angular/http';
 
-import { FormsModule } from '@angular/forms'; 
 
 import { AppComponent } from './app.component';
-import { TodolistComponent } from './components/todolist/todolist.component';
+import { InputComponent } from './components/input/input.component';
+import { ListComponent } from './components/list/list.component';
 import { GoodslistComponent } from './components/goodslist/goodslist.component';
-import { VoterComponent } from './components/voter/voter.component';
-import { FirstComponent } from './components/first/first.component';
-import { GetDataService } from './services/get-data.service';
+import { AComponent } from './components/a/a.component';
+import { BComponent } from './components/b/b.component';
+import { HomeComponent } from './components/home/home.component';
+import { GooddetailComponent } from './components/gooddetail/gooddetail.component';
+
+import { StorageService } from './services/storage.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodolistComponent,
+    InputComponent,
+    ListComponent,
+    AComponent,
+    BComponent,
+    HomeComponent,
     GoodslistComponent,
-    VoterComponent,
-    FirstComponent,
+    GooddetailComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule,
+    JsonpModule,
+    RouterModule.forRoot([
+      {path:'',redirectTo:'home',pathMatch:'full'},
+      {path:'home/:id',component:HomeComponent},
+      {path:'a',component:AComponent},
+      {path:'b',component:BComponent},
+      {path:'goodslist',component:GoodslistComponent,
+        children: [{
+          path:'gooddetail',component:GooddetailComponent
+        }]
+    }
+    ])
   ],
-  providers: [GetDataService],
+  providers: [StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
